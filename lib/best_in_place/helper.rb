@@ -19,6 +19,7 @@ module BestInPlace
         value = fieldValue ? opts[:collection][1] : opts[:collection][0]
         collection = opts[:collection].to_json
       end
+      opts[:nil] = opts[:alt] if opts[:alt]
       out = "<span class='best_in_place'"
       out << " id='best_in_place_#{object.class.to_s.gsub("::", "_").underscore}_#{field}'"
       out << " data-url='#{opts[:path].blank? ? url_for(object).to_s : url_for(opts[:path])}'"
